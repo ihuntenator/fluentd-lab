@@ -1,0 +1,14 @@
+version: "3.8"
+
+services:
+  noise01:
+    build: .
+    command: sh -c 'i=0; while true; do echo "$i: $(date)"; i=$((i+1)); sleep 1; done'
+
+  noise02:
+    build: .
+    command: sh -c 'i=0; while true; do echo "$i: $(date)"; i=$((i+1)); sleep 1; done'
+
+  fluentd:
+    image: ihuntenator/fluentd-hec:1.1
+
