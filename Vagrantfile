@@ -6,6 +6,7 @@ yum install -y docker
 sed -i 's/--log-driver=journald/--log-driver=json-file/g' /etc/sysconfig/docker
 systemctl enable docker.service
 systemctl start docker.service
+docker run -d -v /var/lib/docker/containers:/ontainers ihuntenator/fluentd-hec:1.1 fluentd -c /fluentd/etc/fluentd.conf
 SCRIPT
 
 # td-agent VM
