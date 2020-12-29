@@ -2,22 +2,21 @@ version: "3.8"
 
 services:
   noise01:
-    image: registry.access.redhat.com/ubi7:latest
-    command: sh -c i=0; while true; do echo "$i: $(date)"; i=$((i+1)); sleep 3; done
+    build: .
 
   noise02:
-    image: registry.access.redhat.com/ubi7:latest
-    command: sh -c i=0; while true; do echo "$i: $(date)"; i=$((i+1)); sleep 3; done
+    build: .
 
   fluentd:
     image: ihuntenator/fluentd-hec:1.1
     volumes:
       - /var/lib/docker/containers:/var/lib/docker/containers:Z
-    command: --label=com.centurylinklabs.watchtower.enable=true
+    command: fluentd -c /fluentd/etc/fluentd.conf
+#    command: --label=com.centurylinklabs.watchtower.enable=true
 
-  watchtower:
-    image: containrrr/watchtower
-    volumes:
-      - /var/run/docker.sock:/var/run/docker.sock
-      - /root/.docker/config.json:/config.json
-    command: --interval 30 --enable-label
+#  watchtower:
+#    image: containrrr/watchtower
+#    volumes:
+#      - /var/run/docker.sock:/var/run/docker.sock
+#      - /root/.docker/config.json:/config.json
+#    command: --interval 30 --enable-label
