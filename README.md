@@ -9,7 +9,7 @@ Update, install the guest plugin and start up the tdagent test vm.
 ```
 vagrant box update --box centos/7
 vagrant plugin install vagrant-vbguest
-vagrant up
+vagrant up --provision
 ```
 
 ## docker-compose.yaml

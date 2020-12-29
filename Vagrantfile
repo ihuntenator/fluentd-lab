@@ -2,6 +2,7 @@
 # vi: set ft=ruby :
 
 $lab_simple_tdagent = <<-'SCRIPT'
+echo "192.168.1.71 splunk.local splunk" >> /etc/hosts
 yum install -y docker 
 sed -i 's/--log-driver=journald/--log-driver=json-file/g' /etc/sysconfig/docker
 systemctl enable docker.service
