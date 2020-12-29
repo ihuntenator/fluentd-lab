@@ -11,7 +11,11 @@ services:
     image: ihuntenator/fluentd-hec:1.1
     volumes:
       - /var/lib/docker/containers:/var/lib/docker/containers:Z
-    command: fluentd -c /fluentd/etc/fluentd.conf
+    environment:
+      TZ: "Pacific/Auckland"
+    command: >
+      sh -c "ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone &&
+      exec fluentd -c /fluentd/etc/fluentd.conf"
 #    command: --label=com.centurylinklabs.watchtower.enable=true
 
 #  watchtower:
