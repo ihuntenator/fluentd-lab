@@ -14,7 +14,7 @@ vagrant provision
 
 ## Problems
 
-### `fluentd_tail` gets permissoion denied reading container logs
+### `fluentd_tail` gets permmision denied reading container logs
 
 The log aggregator container is a UBI8 with SeLinux enabled, the Vagrant box is  Centos 7 with SeLinux enabled, the volume mount of /var/lib/docker/containers/ when trying to read the container logs gave a permission denied error, which is unexpected as using the `Z` option on the volume mount.
 
