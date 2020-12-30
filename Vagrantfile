@@ -6,7 +6,7 @@ timedatectl set-timezone Pacific/Auckland
 echo "192.168.1.71 splunk.local splunk" >> /etc/hosts
 yum install -y yum-utils
 yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
-yum install docker-ce docker-ce-cli containerd.io
+yum -y install docker-ce docker-ce-cli containerd.io
 systemctl enable docker.service
 systemctl start docker.service
 curl -L "https://github.com/docker/compose/releases/download/1.27.4/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
@@ -15,7 +15,6 @@ ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
 curl -O https://raw.githubusercontent.com/ihuntenator/fluentd-lab/master/docker-compose.yaml
 curl -O https://raw.githubusercontent.com/ihuntenator/fluentd-lab/master/Dockerfile
 docker-compose up -d
-#  ihuntenator/fluentd-hec:1.1 fluentd -c /fluentd/etc/fluentd.conf
 SCRIPT
 
 # td-agent VM

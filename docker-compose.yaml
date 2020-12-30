@@ -3,19 +3,21 @@ version: "3.8"
 services:
   noise01:
     build: .
+    container_name: noise01
 
   noise02:
     build: .
+    container_name: noise02
 
   fluentd:
-    image: ihuntenator/fluentd-hec:1.5
+    image: ihuntenator/fluentd-hec:1.6
+    container_name: fluentd
     volumes:
       - /var/lib/docker/containers:/var/lib/docker/containers:Z
     environment:
       TZ: "Pacific/Auckland"
     command: >
-      sh -c "ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone &&
-      exec fluentd -c /fluentd/etc/fluentd.conf"
+      sh -c "ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone"
 #    command: --label=com.centurylinklabs.watchtower.enable=true
 
 #  watchtower:
