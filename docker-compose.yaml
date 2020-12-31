@@ -10,7 +10,7 @@ services:
     container_name: noise02
 
   fluentd:
-    image: ihuntenator/fluentd-hec:1.8
+    image: ihuntenator/fluentd-hec:1.7
     container_name: fluentd
     volumes:
       - /var/lib/docker/containers:/var/lib/docker/containers:Z
