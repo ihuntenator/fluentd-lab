@@ -24,6 +24,7 @@ Vagrant.configure("2") do |config|
     tdagent_simple.vm.hostname = 'tdagent'
     tdagent_simple.vm.network :private_network, ip: "172.16.94.40"
     tdagent_simple.vm.provider :virtualbox do |v|
+    tdagent_simple.vm.synced_folder ".", "/vagrant", type: "virtualbox"
       v.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
       v.customize ["modifyvm", :id, "--memory", 1024]
       v.customize ["modifyvm", :id, "--name", "tdagent"]
