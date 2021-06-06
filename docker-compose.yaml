@@ -19,4 +19,3 @@ services:
       TZ: "Pacific/Auckland"
     command: >
       sh -c "fluentd -c /fluentd/etc/fluentd.conf"
-#      sh -c "ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone && fluentd -c /fluentd/etc/fluentd.conf"
