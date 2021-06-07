@@ -1,7 +1,7 @@
 # fluentd lab
 
 Verify fluentd.conf and verify events to splunk.
-t
+
 ## Vagrantfile
 
 Start a Centos 7 vm with docker.
