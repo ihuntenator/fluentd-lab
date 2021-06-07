@@ -15,7 +15,7 @@ ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
 mkdir -p /opt/fluentd/etc
 curl https://raw.githubusercontent.com/ihuntenator/fluentd-lab/master/docker-compose.yaml -o docker-compose.yaml
 curl https://raw.githubusercontent.com/ihuntenator/fluentd-lab/master/Dockerfile -o Dockerfile
-curl https://raw.githubusercontent.com/ihuntenator/fluentd.conf/master/fluentd.conf -o /opt/fluentd/etc/fluentd.conf
+curl https://raw.githubusercontent.com/ihuntenator/fluentd-conf/master/fluentd.conf.in_file.hec -o /opt/fluentd/etc/fluentd.conf
 docker-compose up -d
 SCRIPT
 
