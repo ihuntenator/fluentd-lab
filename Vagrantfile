@@ -12,7 +12,7 @@ systemctl start docker.service
 curl -L "https://github.com/docker/compose/releases/download/1.27.4/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 chmod +x /usr/local/bin/docker-compose
 ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
-mkdir -p /opt/fluentd/etc
+mkdir -p /opt/fluentd-hec/fluentd/etc
 curl https://raw.githubusercontent.com/ihuntenator/fluentd-lab/master/docker-compose.yaml -o docker-compose.yaml
 curl https://raw.githubusercontent.com/ihuntenator/fluentd-lab/master/Dockerfile -o Dockerfile
 curl https://raw.githubusercontent.com/ihuntenator/fluentd-conf/master/fluentd.conf.in_file.hec -o /opt/fluentd-hec/fluentd/etc/fluentd.conf
