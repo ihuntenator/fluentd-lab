@@ -13,7 +13,7 @@ services:
     image: ihuntenator/fluentd-hec:1.9
     container_name: fluentd
     hostname: clddfluentd01
-    portis:
+    ports:
       - "24224:24224"
     volumes:
       - /var/lib/docker/containers:/var/lib/docker/containers:Z
