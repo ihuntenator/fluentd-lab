@@ -12,9 +12,12 @@ services:
   fluentd:
     image: ihuntenator/fluentd-hec:1.9
     container_name: fluentd
+    hostname: clddfluentd01
+    portis:
+      - "24224:24224:
     volumes:
       - /var/lib/docker/containers:/var/lib/docker/containers:Z
-      - /opt/fluentd/etc/:/fluentd/etc/:Z
+      - /opt/fluentd-hec/fluentd:/fluentd/:Z
     environment:
       TZ: "Pacific/Auckland"
     command: >
