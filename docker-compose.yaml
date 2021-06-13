@@ -12,6 +12,7 @@ services:
   fluentd:
     image: ihuntenator/fluentd-hec:1.9
     container_name: fluentd
+    hostname: cdlfluentd01
     volumes:
       - /var/lib/docker/containers:/var/lib/docker/containers:Z
       - /opt/fluentd/etc/:/fluentd/etc/:Z
